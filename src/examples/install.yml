@@ -1,0 +1,15 @@
+description: >
+  Install Vault binary into a build
+usage:
+  version: 2.1
+  orbs:
+    vault: jmingtan/hashicorp-vault@0.0.1
+  jobs:
+    build:
+      steps:
+        - checkout
+        - vault/install
+  workflows:
+    main:
+      jobs:
+        - build

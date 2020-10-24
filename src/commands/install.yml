@@ -1,8 +1,41 @@
-description: >
-  This command echos "Hello World" using file inclusion.
-# What will this command do?
-# Descriptions should be short, simple, and clear.
+description: |
+  This command installs the Vault binary in your build
+  Requirements: curl
+parameters:
+  version:
+    default: ""
+    description: The Vault version, leave blank to download latest.
+    type: string
+  arch:
+    default: "amd64"
+    description: The target platform architecture
+    type: string
 steps:
   - run:
-      name: Hello Greeting
-      command: echo "hello"
+      name: Install the Vault binary
+      command: |
+        if which vault > /dev/null; then
+          echo "Vault is already installed"
+          exit 0
+        fi
+        PLATFORM="linux"
+        if [ -n "$(uname | grep "Darwin")" ]; then
+          PLATFORM="darwin"
+        fi
+        ARCH="<< parameters.arch >>"
+        VERSION="<< parameters.version >>"
+        if [ -z "$VERSION"]; then
+          VERSION=$(curl -Ls --fail --retry 3 https://releases.hashicorp.com/vault/ | awk -F_ '$0 ~ /vault_[0-9]\.[0-9]\.[0-9]</ {gsub(/<\/a>/, ""); print $2}' | head -n 1)
+        fi
+        FILENAME="vault_${VERSION}_${PLATFORM}_${ARCH}.zip"
+        DOWNLOAD_URL="https://releases.hashicorp.com/vault/$VERSION/$FILENAME"
+
+        curl -L --fail --retry 3 -o $FILENAME "$DOWNLOAD_URL"
+        unzip $FILENAME
+        rm $FILENAME
+        SUDO=""
+        if [ $(id -u) -ne 0 ] && which sudo > /dev/null ; then
+          SUDO="sudo"
+        fi
+        $SUDO mv ./vault /usr/local/bin/vault
+        vault version
