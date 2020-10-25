@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
  - Current development changes [ to be moved to release ]
 
-## [1.0.0] - YYYY-MM-DD
+## [1.0.0] - 2020-10-25
 ### Added
  - Initial Release
 ### Changed
@@ -16,4 +16,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - Initial Release
 
 
-[1.0.0]: GITHUB TAG URL
+[1.0.0]: https://github.com/jmingtan/hashicorp-vault-orb/releases/tag/0.0.1

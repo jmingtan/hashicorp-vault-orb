@@ -1,14 +1,10 @@
-# Hashicorp Vault Orb
-<!---
-[![CircleCI Build Status](https://circleci.com/gh/<organization>/<project-name>.svg?style=shield "CircleCI Build Status")](https://circleci.com/gh/<organization>/<project-name>) [![CircleCI Orb Version](https://img.shields.io/badge/endpoint.svg?url=https://badges.circleci.io/orb/<namespace>/<orb-name>)](https://circleci.com/orbs/registry/orb/<namespace>/<orb-name>) [![GitHub License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/<organization>/<project-name>/master/LICENSE) [![CircleCI Community](https://img.shields.io/badge/community-CircleCI%20Discuss-343434.svg)](https://discuss.circleci.com/c/ecosystem/orbs)
+# Hashicorp Vault Orb [![CircleCI Build Status](https://circleci.com/gh/jmingtan/hashicorp-vault-orb.svg?style=shield "CircleCI Build Status")](https://circleci.com/gh/jmingtan/hashicorp-vault-orb) [![CircleCI Orb Version](https://img.shields.io/badge/endpoint.svg?url=https://badges.circleci.io/orb/jmingtan/hashicorp-vault)](https://circleci.com/orbs/registry/orb/jmingtan/hashicorp-vault) [![GitHub License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/jmingtan/hashicorp-vault-orb/master/LICENSE) [![CircleCI Community](https://img.shields.io/badge/community-CircleCI%20Discuss-343434.svg)](https://discuss.circleci.com/c/ecosystem/orbs)
 
---->
+A CircleCI orb for working with Hashicorp Vault in your build pipeline.
 
-A starter template for orb projects. Build, test, and publish orbs automatically on CircleCI with [Orb-Tools](https://circleci.com/orbs/registry/orb/circleci/orb-tools).
+## Usage
 
-Additional READMEs are available in each directory.
-
-**Meta**: This repository is open for contributions! Feel free to open a pull request with your changes. Due to the nature of this repository, it is not built on CircleCI. The Resources and How to Contribute sections relate to an orb created with this template, rather than the template itself.
+See the [orb registry listing](https://circleci.com/orbs/registry/orb/jmingtan/hashicorp-vault) for usage guidelines.
 
 ## Resources
 
