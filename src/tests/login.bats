@@ -7,6 +7,7 @@ setup_file() {
     export VAULT_TOKEN=1234567890
     export VAULT_ADDR=http://localhost:8200
     vault server -dev -dev-root-token-id=1234567890 &
+    sleep 3
     vault auth enable userpass
     vault auth enable -path=altuser userpass
     vault auth enable approle
@@ -68,7 +69,6 @@ teardown() {
 @test "login with approle" {
     PARAM_METHOD=approle
     run login_main "$PARAM_METHOD"
-    cat ~/.vault-token
     [ $status -eq 0 ]
     role=$(vault read -format=json auth/token/lookup-self | jq -r '.data | .meta | .role_name')
     [ $role == "testrole" ]
