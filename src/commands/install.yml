@@ -1,6 +1,6 @@
 description: |
   This command installs the Vault binary in your build
-  Requirements: curl
+  Requirements: curl, gpg (optional), jq (optional)
 parameters:
   version:
     default: ""
@@ -10,32 +10,15 @@ parameters:
     default: "amd64"
     description: The target platform architecture
     type: string
+  verify:
+    default: true
+    description: Verifies the integrity of the binary, requires jq and gpg
+    type: boolean
 steps:
   - run:
       name: Install the Vault binary
-      command: |
-        if which vault > /dev/null; then
-          echo "Vault is already installed"
-          exit 0
-        fi
-        PLATFORM="linux"
-        if [ -n "$(uname | grep "Darwin")" ]; then
-          PLATFORM="darwin"
-        fi
-        ARCH="<< parameters.arch >>"
-        VERSION="<< parameters.version >>"
-        if [ -z "$VERSION"]; then
-          VERSION=$(curl -Ls --fail --retry 3 https://releases.hashicorp.com/vault/ | awk -F_ '$0 ~ /vault_[0-9]\.[0-9]\.[0-9]</ {gsub(/<\/a>/, ""); print $2}' | head -n 1)
-        fi
-        FILENAME="vault_${VERSION}_${PLATFORM}_${ARCH}.zip"
-        DOWNLOAD_URL="https://releases.hashicorp.com/vault/$VERSION/$FILENAME"
-
-        curl -L --fail --retry 3 -o $FILENAME "$DOWNLOAD_URL"
-        unzip $FILENAME
-        rm $FILENAME
-        SUDO=""
-        if [ $(id -u) -ne 0 ] && which sudo > /dev/null ; then
-          SUDO="sudo"
-        fi
-        $SUDO mv ./vault /usr/local/bin/vault
-        vault version
+      environment:
+        PARAM_VERSION: << parameters.version >>
+        PARAM_ARCH: << parameters.arch >>
+        PARAM_VERIFY: << parameters.verify >>
+      command: << include(scripts/install.sh) >>

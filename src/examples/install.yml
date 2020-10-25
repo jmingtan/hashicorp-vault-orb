@@ -4,12 +4,14 @@ usage:
   version: 2.1
   orbs:
     vault: jmingtan/hashicorp-vault@0.0.1
+    jq: circleci/jq@2.2.0
   jobs:
     build:
       docker:
         - image: cimg/base:stable
       steps:
         - checkout
+        - jq/install
         - vault/install
   workflows:
     main:
