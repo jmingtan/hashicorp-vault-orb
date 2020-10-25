@@ -2,6 +2,8 @@
 
 A CircleCI orb for working with Hashicorp Vault in your build pipeline.
 
+![Vault Logo](https://raw.githubusercontent.com/jmingtan/hashicorp-vault-orb/main/docs/Vault_PrimaryLogo_Black.png)
+
 ## Usage
 
 See the [orb registry listing](https://circleci.com/orbs/registry/orb/jmingtan/hashicorp-vault) for usage guidelines.

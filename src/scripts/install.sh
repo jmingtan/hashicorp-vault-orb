@@ -20,6 +20,7 @@ verify_vault() {
     curl -Os "https://releases.hashicorp.com/vault/$VERSION/vault_${VERSION}_SHA256SUMS.sig"
     gpg --verify "vault_${VERSION}_SHA256SUMS.sig" "vault_${VERSION}_SHA256SUMS"
     grep "${PLATFORM}_${ARCH}.zip" "vault_${VERSION}_SHA256SUMS" | shasum -a 256 -
+    echo "Verified Vault binary"
     rm "vault_${VERSION}_SHA256SUMS.sig" "vault_${VERSION}_SHA256SUMS" hashicorp.asc
 }
 
