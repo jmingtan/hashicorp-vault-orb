@@ -28,6 +28,14 @@ jobs:
     steps:
       - checkout
       - vault/install
+      - run:
+          name: run Vault server in background
+          command: vault server -dev -dev-root-token-id=1234567890
+          background: true
+      - vault/login:
+          method: token
+          token: "1234567890"
+          vault-addr: http://localhost:8200
 
 workflows:
   test-pack:
