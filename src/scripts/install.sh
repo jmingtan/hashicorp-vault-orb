@@ -44,7 +44,7 @@ install_vault() {
 
     curl -L --fail --retry 3 -o "$FILENAME" "$DOWNLOAD_URL"
     if [ "$VERIFY" = true ]; then
-      verify_vault
+      verify_vault "$VERSION" "$ARCH" "$PLATFORM"
     fi
     unzip "$FILENAME"
     rm "$FILENAME"
@@ -57,6 +57,6 @@ install_vault() {
 }
 
 ORB_TEST_ENV="bats-core"
-if [ "${0#*$ORB_TEST_ENV}" == "$0" ]; then
+if [ "${0#*$ORB_TEST_ENV}" = "$0" ]; then
     install_vault "$PARAM_VERSION" "$PARAM_ARCH" "$PARAM_VERIFY"
 fi
