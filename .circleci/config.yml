@@ -32,6 +32,9 @@ jobs:
           name: run Vault server in background
           command: vault server -dev -dev-root-token-id=1234567890
           background: true
+      - run:
+          name: wait for Vault server
+          command: dockerize -wait tc://localhost:8200 -timeout 1m
       - vault/login:
           method: token
           token: "1234567890"
