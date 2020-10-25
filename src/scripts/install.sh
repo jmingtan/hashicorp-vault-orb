@@ -26,12 +26,14 @@ verify_vault() {
 install_vault() {
     VERSION=$1
     ARCH=$2
+    VERIFY=$3
     if which vault > /dev/null; then
       echo "Vault is already installed"
       exit 0
     fi
     PLATFORM="linux"
-    if [ -n "$(uname | grep "Darwin")" ]; then
+    if uname | grep "Darwin"
+    then
       PLATFORM="darwin"
     fi
     if [ -z "$VERSION" ]; then
@@ -41,6 +43,9 @@ install_vault() {
     DOWNLOAD_URL="https://releases.hashicorp.com/vault/$VERSION/$FILENAME"
 
     curl -L --fail --retry 3 -o "$FILENAME" "$DOWNLOAD_URL"
+    if [ "$VERIFY" = true ]; then
+      verify_vault
+    fi
     unzip "$FILENAME"
     rm "$FILENAME"
     SUDO=""
@@ -53,5 +58,5 @@ install_vault() {
 
 ORB_TEST_ENV="bats-core"
 if [ "${0#*$ORB_TEST_ENV}" == "$0" ]; then
-    install_vault "$PARAM_VERSION" "$PARAM_ARCH"
+    install_vault "$PARAM_VERSION" "$PARAM_ARCH" "$PARAM_VERIFY"
 fi
