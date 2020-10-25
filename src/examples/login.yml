@@ -11,7 +11,7 @@ usage:
       steps:
         - checkout
         - vault/install
-        - vault/login
+        - vault/login:
             vault_addr: << parameter.vault_addr >>
             method: userpass
             username: << parameter.vault_username >>
