@@ -59,5 +59,6 @@ install_vault() {
 
 ORB_TEST_ENV="bats-core"
 if [ "${0#*$ORB_TEST_ENV}" = "$0" ]; then
+    echo "param_verify: $PARAM_VERIFY"
     install_vault "$PARAM_VERSION" "$PARAM_ARCH" "$PARAM_VERIFY"
 fi
