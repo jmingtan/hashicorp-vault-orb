@@ -1,8 +1,8 @@
 version: 2.1
 
 description: >
-  An orb for working with Hashicorp Vault.
-  Hashicorp Vault is a tool for secrets management, encryption as a service, and privileged access management.
+  An orb for working with HashiCorp Vault.
+  HashiCorp Vault is a tool for secrets management, encryption as a service, and privileged access management.
 display:
   home_url: "https://www.vaultproject.io"
   source_url: "https://github.com/jmingtan/hashicorp-vault-orb"

@@ -1,6 +1,6 @@
 # Hashicorp Vault Orb [![CircleCI Build Status](https://circleci.com/gh/jmingtan/hashicorp-vault-orb.svg?style=shield "CircleCI Build Status")](https://circleci.com/gh/jmingtan/hashicorp-vault-orb) [![CircleCI Orb Version](https://img.shields.io/badge/endpoint.svg?url=https://badges.circleci.io/orb/jmingtan/hashicorp-vault)](https://circleci.com/orbs/registry/orb/jmingtan/hashicorp-vault) [![GitHub License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/jmingtan/hashicorp-vault-orb/master/LICENSE) [![CircleCI Community](https://img.shields.io/badge/community-CircleCI%20Discuss-343434.svg)](https://discuss.circleci.com/c/ecosystem/orbs)
 
-A CircleCI orb for working with Hashicorp Vault in your build pipeline.
+A CircleCI orb for working with HashiCorp Vault in your build pipeline.
 
 ![Vault Logo](https://raw.githubusercontent.com/jmingtan/hashicorp-vault-orb/main/docs/Vault_PrimaryLogo_Black.png)
 
@@ -9,6 +9,8 @@ A CircleCI orb for working with Hashicorp Vault in your build pipeline.
 See the [orb registry listing](https://circleci.com/orbs/registry/orb/jmingtan/hashicorp-vault) for usage guidelines.
 
 ## Resources
+
+[HashiCorp Vault](https://www.vaultproject.io) - A tool for secrets management, encryption as a service, and privileged access management.
 
 [CircleCI Orb Registry Page](https://circleci.com/orbs/registry/orb/<namespace>/<project-name>) - The official registry page of this orb for all versions, executors, commands, and jobs described.
 
