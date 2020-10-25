@@ -28,6 +28,17 @@ jobs:
     steps:
       - checkout
       - vault/install
+      - run:
+          name: run Vault server in background
+          command: vault server -dev -dev-root-token-id=1234567890
+          background: true
+      - run:
+          name: wait for Vault server
+          command: dockerize -wait tcp://localhost:8200 -timeout 1m
+      - vault/login:
+          method: token
+          token: "1234567890"
+          vault-addr: http://localhost:8200
 
 workflows:
   test-pack:
