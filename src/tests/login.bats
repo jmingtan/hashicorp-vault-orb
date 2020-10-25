@@ -2,6 +2,8 @@
 
 setup_file() {
     # ensure Vault is installed
+    export PARAM_ARCH=amd64
+    export PARAM_VERIFY=1
     sh src/scripts/install.sh
 
     export VAULT_TOKEN=1234567890
