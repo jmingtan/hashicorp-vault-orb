@@ -44,7 +44,7 @@ install_vault() {
     DOWNLOAD_URL="https://releases.hashicorp.com/vault/$VERSION/$FILENAME"
 
     curl -L --fail --retry 3 -o "$FILENAME" "$DOWNLOAD_URL"
-    if [ "$VERIFY" = true ]; then
+    if [ "$VERIFY" -eq 1 ]; then
       verify_vault "$VERSION" "$ARCH" "$PLATFORM"
     fi
     unzip "$FILENAME"
@@ -59,6 +59,5 @@ install_vault() {
 
 ORB_TEST_ENV="bats-core"
 if [ "${0#*$ORB_TEST_ENV}" = "$0" ]; then
-    echo "param_verify: $PARAM_VERIFY"
     install_vault "$PARAM_VERSION" "$PARAM_ARCH" "$PARAM_VERIFY"
 fi
