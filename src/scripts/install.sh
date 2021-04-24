@@ -14,7 +14,7 @@ verify_vault() {
     VERSION=$1
     ARCH=$2
     PLATFORM=$3
-    curl -s "https://keybase.io/_/api/1.0/key/fetch.json?pgp_key_ids=51852D87348FFC4C" | jq -r '.keys | .[0] | .bundle' > hashicorp.asc
+    curl -s "https://keybase.io/_/api/1.0/key/fetch.json?pgp_key_ids=34365D9472D7468F" | jq -r '.keys | .[0] | .bundle' > hashicorp.asc
     gpg --import hashicorp.asc
     curl -Os "https://releases.hashicorp.com/vault/$VERSION/vault_${VERSION}_SHA256SUMS"
     curl -Os "https://releases.hashicorp.com/vault/$VERSION/vault_${VERSION}_SHA256SUMS.sig"
