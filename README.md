@@ -12,13 +12,13 @@ See the [orb registry listing](https://circleci.com/orbs/registry/orb/jmingtan/h
 
 [HashiCorp Vault](https://www.vaultproject.io) - A tool for secrets management, encryption as a service, and privileged access management.
 
-[CircleCI Orb Registry Page](https://circleci.com/orbs/registry/orb/<namespace>/<project-name>) - The official registry page of this orb for all versions, executors, commands, and jobs described.
+[CircleCI Orb Registry Page](https://circleci.com/developer/orbs/orb/jmingtan/hashicorp-vault) - The official registry page of this orb for all versions, executors, commands, and jobs described.
 
 [CircleCI Orb Docs](https://circleci.com/docs/2.0/orb-intro/#section=configuration) - Docs for using and creating CircleCI Orbs.
 
 ### How to Contribute
 
-We welcome [issues](https://github.com/<organization>/<project-name>/issues) to and [pull requests](https://github.com/<organization>/<project-name>/pulls) against this repository!
+We welcome [issues](https://github.com/jmingtan/hashicorp-vault-orb/issues) to and [pull requests](https://github.com/jmingtan/hashicorp-vault-orb/pulls) against this repository!
 
 ### How to Publish
 * Create and push a branch with your new features.
